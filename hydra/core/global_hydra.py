@@ -13,9 +13,11 @@ class GlobalHydra(metaclass=Singleton):
     def initialize(self, hydra: "Hydra") -> None:
         assert isinstance(hydra, Hydra), f"Unexpected Hydra type : {type(hydra)}"
         if self.is_initialized():
-            raise ValueError(
-                "GlobalHydra is already initialized, call GlobalHydra.instance().clear() if you want to re-initialize"
-            )
+            pass
+            # this sh*t breaks my Streamlit application
+            # raise ValueError(
+            #     "GlobalHydra is already initialized, call GlobalHydra.instance().clear() if you want to re-initialize"
+            # )
         self.hydra = hydra
 
     def config_loader(self) -> "ConfigLoader":
